@@ -4,9 +4,9 @@ from core.apis import decorators
 from core.apis.responses import APIResponse
 from core.models.assignments import Assignment
 
-from .schema import AssignmentSchema
-
+from .schema import AssignmentSchema, AssignmentGradeSchema
 teacher_assignments_resources = Blueprint('teacher_assignments_resources', __name__)
+
 
 @teacher_assignments_resources.route('/assignments', methods=['GET'], strict_slashes=False)
 @decorators.auth_principal
