@@ -25,8 +25,9 @@ def ready():
 @app.errorhandler(Exception)
 def handle_error(err):
     if isinstance(err, FyleError):
+        res = err.to_dict() 
         return jsonify(
-            error=err.__class__.__name__, message=err.message
+            error=err.__class__.__name__, message=res["message"]
         ), err.status_code
     elif isinstance(err, ValidationError):
         return jsonify(
