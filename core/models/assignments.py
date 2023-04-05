@@ -87,7 +87,7 @@ class Assignment(db.Model):
         assertions.assert_found(assignment, 'No assignment with this id was found')
         assertions.assert_valid(assignment.state == AssignmentStateEnum.SUBMITTED)
         assertions.assert_valid(assignment.teacher_id == principal.teacher_id, 'This assignment belongs comes under other teacher')
-        assertions.assert_valid(grade in [member.value for member in GradeEnum])
+        # assertions.assert_valid(grade in [member.value for member in GradeEnum])
         
         assignment.grade = grade
         db.session.flush()

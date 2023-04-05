@@ -42,7 +42,7 @@ class AssignmentGradeSchema(Schema):
     class Meta:
         unknown = EXCLUDE
     id = fields.Integer(required=True, allow_none=False)
-    grade = fields.String(required=True, allow_none=False)
+    grade = EnumField(GradeEnum, required=True)
 
     @post_load
     def initiate_class(self, data_dict, many, partial):

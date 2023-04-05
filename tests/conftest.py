@@ -31,6 +31,14 @@ def h_student_2():
 
     return headers
 
+@pytest.fixture
+def h_student_3():
+    headers = {
+        'invalid': 'header'
+    }
+
+    return headers
+
 
 @pytest.fixture
 def h_teacher_1():
